@@ -39,7 +39,7 @@ $(NAME): $(LFT) $(OBJS)
 
 clean:
 	@make clean -C libft/
-	@/bin/rm -rf $(OBJS)
+	@/bin/rm -rf $(OBJDIR)
 
 fclean: clean
 	@make fclean -C libft/

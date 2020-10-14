@@ -1,0 +1,30 @@
+
+typedef int	(*stat_func)(const char *, struct stat *buf);
+
+void	stat_entry(t_ls *ls)
+{
+	t_path	*path;
+	t_path	*new;
+	stat_func func;
+
+	func = lstat;//later we'll decide according to some flags
+	path = ls->paths;
+	while (path)
+	{
+		if (func(path->pathname, &path->st) == -1)
+			ft_dprintf(2, "ls:cannot access %s: %s\n", path->pathname, strerror(errno));
+		else if ((path->st.st_mode & S_IFMT) == S_IFDIR)
+		{
+			new = ft_ls_path_new(ls, path->pathname);
+			new->st = path->st;
+			ft_ls_path_add(&ls->dirs, new);
+		}
+		else
+		{
+			new = ft_ls_path_new(ls, path->pathname);
+			new->st = path->st;
+			ft_ls_path_add(&ls->files, new);
+		}
+		path = path->next;
+	}
+}

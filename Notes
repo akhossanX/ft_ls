@@ -1,0 +1,34 @@
+
+## ft_ls
+
++	for file types other than directory, ls displays file names as well as any requested associated information.
+
++	for each operand that names a file of type directory, ls displays the names of files contained within that
+	directory.
+
++	if no operand (argument) is given the contents of the current directory are displayed.
+
++	if more than one operand is given, non-directory operands are displayed first; directory and non-directory
+	operands are sorted seperately and in lexicographical order.
+
+// flags:
+
+	-A	: include directory entries whose names begin with a dot `.' except for `.' and `..'.
+	-R	: Recursively list directories encountered.
+	-S	: Sort by size (largest file first) before sorting oprerands in lexicographical order.
+	-a	: Include directory entries whose names begin with a dot `.'.
+	-c	: Use time when file status was last changed for sorting or printing.
+	-d	: Directories are listed as plain files (not searched recursively).
+	-l	: List files in the long format.
+	-r	: reverse the order of the sort.
+	-t	: Sort by descending time modified (most recently modified first), if 2 files have the same
+		  modification timestamp, sort their names in ascending lexic order, -r reverses both sort orders.
+	-1	: force output to be one entry per line.
+
+	-1 and -l oprions override each other; the last one determines the format used. 
+	-c, -u and -U override each other...
+	-S and -t override each other...
+
+//TODO:	
+
+	+	function that takes a list of paths and opens 
